@@ -87,7 +87,7 @@ export const Calculator = () => {
           >
             6
           </button>
-          <button className="w-14 h-8 mx-1 rounded-lg bg-lime-500">-</button>
+          <button name='-' onClick={handleClick} className="w-14 h-8 mx-1 rounded-lg bg-lime-500">-</button>
         </div>
         <div className="flex justify-between">
           <button
