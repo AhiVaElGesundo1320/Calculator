@@ -1,9 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, createContext, useState } from "react";
+
 
 export const Calculator = () => {
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState("")
+
+  //const activeTheme = () => {
+  //  setTheme(theme === 'dark:bg-teal-800' ? 'bg-teal-300 ' : 'dark:bg-teal-800')
+  //  console.log(theme)
+  //}
 
   const handleClick = (e) => {
     setResult(result + e.target.name);
@@ -20,17 +26,21 @@ export const Calculator = () => {
     setResult(eval(result));
   };
 
+
+
   //className="bg-teal-300 my-3 w-52 h-14 rounded-t-lg flex dlex-col items-end" bg-teal-950
   return (
-    <div className="bg-teal-800 h-3/4 w-72 rounded-lg flex flex-col items-center">
-      <div className=" bg-teal-300 my-3 w-64  h-14 rounded-t-lg flex flex-col items-center">
+    
+    <div className={`light:bg-teal-300 dark:bg-teal-800 light:bg-teal-300 h-3/4 w-72 rounded-lg flex flex-col items-center`} 
+    >
+      <div className=" bg-teal-50 my-3 dark:bg-teal-300 w-64  h-14 rounded-t-lg flex flex-col items-center">
         <input
           className="bg-transparent w-52 h-14 text-teal-950  flex items-end text-end active:none focus:outline-none"
           type="text"
           value={result}
         />
       </div>
-      <div className=" h-3/5 w-64 mt-8 flex flex-col justify-between" >
+      <div className=" h-3/5 w-64 mt-8 flex flex-col justify-between">
         <div className="flex justify-between">
           <div className="bg-amber-500 w-20 h-8 rounded-lg text-center flex justify-center">
             <button onClick={clear}>Clear</button>
@@ -61,7 +71,10 @@ export const Calculator = () => {
           >
             3
           </button>
-          <button onClick={clearOnly} className="w-14 h-8 mx-1 rounded-lg bg-lime-500">
+          <button
+            onClick={clearOnly}
+            className="w-14 h-8 mx-1 rounded-lg bg-lime-500"
+          >
             c
           </button>
         </div>
@@ -87,7 +100,13 @@ export const Calculator = () => {
           >
             6
           </button>
-          <button name='-' onClick={handleClick} className="w-14 h-8 mx-1 rounded-lg bg-lime-500">-</button>
+          <button
+            name="-"
+            onClick={handleClick}
+            className="w-14 h-8 mx-1 rounded-lg bg-lime-500"
+          >
+            -
+          </button>
         </div>
         <div className="flex justify-between">
           <button
@@ -151,5 +170,6 @@ export const Calculator = () => {
         </div>
       </div>
     </div>
+
   );
 };

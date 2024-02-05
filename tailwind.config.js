@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
+    darkMode: 'class',
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
