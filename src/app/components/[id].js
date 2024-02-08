@@ -27,7 +27,6 @@ export const Calculator = () => {
 
     <div className='bg-teal-300 dark:bg-teal-800 light:bg-teal-300 h-3/4 w-72 rounded-lg flex flex-col items-center' 
     >
-      <div className=" bg-teal-50 my-3 dark:bg-teal-300 w-64  h-14 rounded-t-lg flex flex-col items-center">
 
       <div className=" bg-teal-50 my-3 dark:bg-teal-300 w-64  h-14 rounded-t-lg flex flex-col items-center">
         <input
