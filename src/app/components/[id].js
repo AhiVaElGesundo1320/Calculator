@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useContext, createContext, useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useTheme } from "./ThemeContextProvider";
+import { MdDarkMode } from "react-icons/md";
 
 export const Calculator = () => {
-  const [result, setResult] = useState("")
-
-  //const activeTheme = () => {
-  //  setTheme(theme === 'dark:bg-teal-800' ? 'bg-teal-300 ' : 'dark:bg-teal-800')
-  //  console.log(theme)
-  //}
+  const [result, setResult] = useState("");
+  const themeActive = useTheme();
 
   const handleClick = (e) => {
     setResult(result + e.target.name);
@@ -26,13 +23,12 @@ export const Calculator = () => {
     setResult(eval(result));
   };
 
-
-
-  //className="bg-teal-300 my-3 w-52 h-14 rounded-t-lg flex dlex-col items-end" bg-teal-950
   return (
-    
+
     <div className='bg-teal-300 dark:bg-teal-800 light:bg-teal-300 h-3/4 w-72 rounded-lg flex flex-col items-center' 
     >
+      <div className=" bg-teal-50 my-3 dark:bg-teal-300 w-64  h-14 rounded-t-lg flex flex-col items-center">
+
       <div className=" bg-teal-50 my-3 dark:bg-teal-300 w-64  h-14 rounded-t-lg flex flex-col items-center">
         <input
           className="bg-transparent w-52 h-14 text-teal-950  flex items-end text-end active:none focus:outline-none"
@@ -40,6 +36,7 @@ export const Calculator = () => {
           value={result}
         />
       </div>
+
       <div className=" h-3/5 w-64 mt-8 flex flex-col justify-between">
         <div className="flex justify-between">
           <div className="bg-amber-500 w-20 h-8 rounded-lg text-center flex justify-center">
@@ -169,7 +166,14 @@ export const Calculator = () => {
           </button>
         </div>
       </div>
+      <div className="my-5 items-center content-center">
+        <button
+          className="flex flex-col items-center aling-center content-center w-14 text-teal-500 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-200 dark:focus:ring-teal-700 rounded-lg text-sm p-2.5"
+          onClick={themeActive}
+        >
+          <MdDarkMode />
+        </button>
+      </div>
     </div>
-
   );
 };
